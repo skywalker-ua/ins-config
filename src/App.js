@@ -7,8 +7,7 @@ function App() {
   return (
     <div className="App">
       <Layout>
-        <Surface width="350px" height="300px" title="title" />
-        
+        <Surface width="350px" height="300px" title="Виберіть вихідні дані" info='Add following info' />
       </Layout>
     </div>
   );

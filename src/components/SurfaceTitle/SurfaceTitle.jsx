@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Divider } from '@material-ui/core';
+import { Typography, Divider, Tooltip  } from '@material-ui/core';
 import HelpIcon from '@material-ui/icons/Help';
 
 const SurfaceTitle = props => {
@@ -7,7 +7,9 @@ const SurfaceTitle = props => {
         <div style={{width: '100%'}}>
             <div style={{display: 'flex', justifyContent: 'center'}}>
                 <Typography style={{margin: '8px', textAlign: 'center',flexGrow: 1}}>{props.title}</Typography>
-                <HelpIcon color="secondary" style={{alignSelf: 'center', marginRight: '13px'}} />
+                <Tooltip title={props.info} placement="right-start" style={{fontSize: '8'}}>
+                    <HelpIcon color="secondary" style={{alignSelf: 'center', marginRight: '13px'}} />
+                </Tooltip>
             </div>
             <Divider style={{width: '100%'}} />
         </div>
