@@ -1,5 +1,6 @@
 import React from 'react';
 import { Typography, Paper } from '@material-ui/core';
+import SurfaceTitle from '../SurfaceTitle/SurfaceTitle';
 
 import styled from 'styled-components';
 
@@ -11,11 +12,13 @@ const SurfaceTools = styled(Paper)`
 `;
 
 const Surface = props => {
-const { width, height } = props;
+const { width, height, title } = props;
 
     return(
         <div>
-            <SurfaceTools style={{width: `${width}`, height: `${height}`}}>2</SurfaceTools>
+            <SurfaceTools style={{width: `${width}`, height: `${height}`}}>
+                <SurfaceTitle title={title} />
+            </SurfaceTools>
         </div>
     );
 };

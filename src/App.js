@@ -7,7 +7,8 @@ function App() {
   return (
     <div className="App">
       <Layout>
-        <Surface width="350px" height="500px" />
+        <Surface width="350px" height="300px" title="title" />
+        
       </Layout>
     </div>
   );
