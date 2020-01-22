@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormHelperText, FilledInput, FormControl, InputLabel,
+import { FormHelperText, FilledInput, FormControl,
     Input, InputAdornment, Switch, FormGroup,
     FormControlLabel, Slider, Typography  } from '@material-ui/core';
 import styled from 'styled-components';
