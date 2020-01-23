@@ -6,8 +6,14 @@ import StartInput from './components/StartInput/StartInput';
 import ColorPicker from './components/ColorPicker/ColorPicker';
 import SvgElement from './components/SvgElement/SvgElement';
 import OrderList from './components/OrderList/OrderList';
+import TotalSum from './components/TotalSum/TotalSum';
+import { connect } from 'react-redux';
 
-function App() {
+function App(props) {
+
+  const [values, setValues] = React.useState({
+
+  });
 
   return (
     <div className="App">
@@ -38,7 +44,7 @@ function App() {
           info='Add following info'
           // loader={true}
         >
-          <SvgElement color="green" />
+          <SvgElement color={props.clr} />
         </Surface>
 
         <Surface 
@@ -49,6 +55,7 @@ function App() {
           штукатурок"
         >
           <OrderList />
+          <TotalSum sum="3000" />
         </Surface>
         
       </Layout>
@@ -56,4 +63,10 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    clr: state.color
+  }
+}
+
+export default connect(mapStateToProps)(App);

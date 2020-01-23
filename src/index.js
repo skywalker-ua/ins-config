@@ -7,6 +7,11 @@ import blue from '@material-ui/core/colors/blue';
 
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import rootReducer from './store/reducer';
+
+const store = createStore(rootReducer);
 
 const theme = createMuiTheme({
     palette: {
@@ -21,7 +26,9 @@ const theme = createMuiTheme({
 
 ReactDOM.render(
     <ThemeProvider theme={theme}>
-        <App />
+        <Provider store={store}>
+            <App />
+        </Provider>
     </ThemeProvider>,
  document.getElementById('root'));
 

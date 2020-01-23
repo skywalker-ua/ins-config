@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import {  Paper, Typography   } from '@material-ui/core';
 import data from '../../constants/colors';
+import { connect } from 'react-redux';
+
 
 const ColorTab = styled.div`
     display: flex;
@@ -36,19 +38,30 @@ const ColorSample = styled(Paper)`
     cursor: pointer;
 `;
 
-const colorPick = props => event => {
-    event.preventDefault();
-    console.log(props.hex);
-}
 
-const ColorPicker = () => {
+
+const ColorPicker = (props) => {
+
+    const colorPick = props => event => {
+        event.preventDefault();
+        console.log(props.imageHex);
+    }
+
     return(
         <ColorTab>
             {data.map(color => (
-                <ColorSample style={{backgroundColor: `${color.imageHex}`}}  hex={color.imageHex} key={color.id} title={color.id}/>
+                <ColorSample onClick={() => props.onAddColor(color.imageHex) /* console.log(color.imageHex) */ } style={{backgroundColor: `${color.imageHex}`}}  hex={color.imageHex} key={color.id} title={color.id}/>
             ))}  
         </ColorTab>
     );
+        
+
 };
 
-export default ColorPicker;
+const mapDispatchToProps = dispatch => {
+    return {
+        onAddColor: (hex) => dispatch({ type: 'ADD_COLOR', value: hex })
+    };
+};
+
+export default connect(null, mapDispatchToProps)(ColorPicker);
