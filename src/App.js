@@ -5,17 +5,9 @@ import Surface from './components/Surface/Surface';
 import StartInput from './components/StartInput/StartInput';
 import ColorPicker from './components/ColorPicker/ColorPicker';
 import SvgElement from './components/SvgElement/SvgElement';
+import OrderList from './components/OrderList/OrderList';
 
 function App() {
-
-  const [values, setValue ] = React.useState({
-    color: null,
-  });
-
-  const handleColorChoice = ( color ) => {
-    setValue({ ...values, color: color });
-    console.log(values.color);
-  }
 
   return (
     <div className="App">
@@ -36,17 +28,27 @@ function App() {
           info="На палітрі зображені доступні кольори декоративних
           штукатурок"
         >
-          <ColorPicker colorInfo={handleColorChoice}  />
+          <ColorPicker />
         </Surface>
 
         <Surface 
-          width="950px" 
+          width="450px" 
           height="400px" 
           title="Виберіть вихідні дані" 
           info='Add following info'
           // loader={true}
         >
-          <SvgElement color="blue" />
+          <SvgElement color="green" />
+        </Surface>
+
+        <Surface 
+          width="450px" 
+          height="650px" 
+          title="Необхідний список матеріалів" 
+          info="На палітрі зображені доступні кольори декоративних
+          штукатурок"
+        >
+          <OrderList />
         </Surface>
         
       </Layout>

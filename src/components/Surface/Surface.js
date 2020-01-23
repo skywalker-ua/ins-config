@@ -10,6 +10,8 @@ const SurfaceTools = styled(Paper)`
     justify-content: flex-start;
     align-items: center;
     margin-top: 15px;
+    margin-right: 10px;
+    margin-left: 5px;
 `;
 
 const LoadingScreen = styled.div`

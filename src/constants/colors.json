@@ -4,6 +4,14 @@
         "imageHex": "#839299"
     },
     {
+        "id": 4232,
+        "imageHex": "#BECACA"
+    },
+    {
+        "id": 4233,
+        "imageHex": "#CCD0D3"
+    },
+    {
         "id": 6104,
         "imageHex": "#9A9FA5"
     },
@@ -104,6 +112,14 @@
         "imageHex": "#C9A5B3"
     },
     {
+        "id": 6174,
+        "imageHex": "#B5B1A5"
+    },
+    {
+        "id": 6180,
+        "imageHex": "#D98C94"
+    },
+    {
         "id": 6224,
         "imageHex": "#798843"
     },
@@ -116,16 +132,48 @@
         "imageHex": "#A1A87F"
     },
     {
+        "id": 6251,
+        "imageHex": "#B08366"
+    },
+    {
         "id": 6260,
         "imageHex": "#D79D4B"
+    },
+    {
+        "id": 6262,
+        "imageHex": "#BAA36F"
+    },
+    {
+        "id": 6305,
+        "imageHex": "#B6B171"
     },
     {
         "id": 6307,
         "imageHex": "#AEA888"
     },
     {
+        "id": 6402,
+        "imageHex": "#BAA36F"
+    },
+    {
         "id": 6500,
         "imageHex": "#BA6F2B"
+    },
+    {
+        "id": 6505,
+        "imageHex": "#DDCB77"
+    },
+    {
+        "id": 6506,
+        "imageHex": "#D9CC95"
+    },
+    {
+        "id": 6507,
+        "imageHex": "#E6E0C6"
+    },
+    {
+        "id": 6704,
+        "imageHex": "#CAA348"
     }
     
 ]

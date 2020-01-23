@@ -41,21 +41,11 @@ const colorPick = props => event => {
     console.log(props.hex);
 }
 
-const ColorItem = (props) => {
-    return(
-        <div>
-            <ColorSample onClick={colorPick(props)}  style={{backgroundColor: `${props.hex}`}}>
-              
-            </ColorSample>
-        </div>
-    );
-}
-
 const ColorPicker = () => {
     return(
         <ColorTab>
             {data.map(color => (
-                <ColorItem  hex={color.imageHex} key={color.id} title={color.id}/>
+                <ColorSample style={{backgroundColor: `${color.imageHex}`}}  hex={color.imageHex} key={color.id} title={color.id}/>
             ))}  
         </ColorTab>
     );
