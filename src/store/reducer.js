@@ -1,5 +1,6 @@
 const initialState = {
-    color: 'null'
+    color: 'null',
+    id: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -7,6 +8,13 @@ const reducer = (state = initialState, action) => {
         return {
             ...state,
             color: action.value
+        }
+    }
+
+    if (action.type === 'ADD_ID') {
+        return {
+            ...state,
+            id: action.number
         }
     }
     return state;

@@ -8,14 +8,11 @@ import SvgElement from './components/SvgElement/SvgElement';
 import OrderList from './components/OrderList/OrderList';
 import TotalSum from './components/TotalSum/TotalSum';
 import ElementSelection from './components/ElementSelection/ElementSelection';
+import ColorId from './components/ColorId/ColorId';
 
 import { connect } from 'react-redux';
 
 function App(props) {
-
-  const [values, setValues] = React.useState({
-
-  });
 
   return (
     <div className="App">
@@ -42,11 +39,13 @@ function App(props) {
         <Surface 
           width="450px" 
           height="400px" 
-          title="Виберіть вихідні дані" 
+          title="Вигляд системи утеплення" 
           info='Add following info'
           // loader={props.clr}
         >
+          <ColorId colorId={props.idn} />
           <ElementSelection />
+
           <SvgElement color={props.clr} />
         </Surface>
 
@@ -68,7 +67,8 @@ function App(props) {
 
 const mapStateToProps = state => {
   return {
-    clr: state.color
+    clr: state.color,
+    idn: state.id
   }
 }
 

@@ -45,7 +45,10 @@ const ColorPicker = (props) => {
     return(
         <ColorTab>
             {data.map(color => (
-                <ColorSample onClick={() => props.onAddColor(color.imageHex) /* console.log(color.imageHex) */ } style={{backgroundColor: `${color.imageHex}`}}  hex={color.imageHex} key={color.id} title={color.id}/>
+                <ColorSample onClick={() => {
+                    props.onAddColor(color.imageHex);
+                    props.onAddId(color.id); 
+                }} style={{backgroundColor: `${color.imageHex}`}}  hex={color.imageHex} key={color.id} title={color.id}/>
             ))}  
         </ColorTab>
     );
@@ -55,7 +58,8 @@ const ColorPicker = (props) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAddColor: (hex) => dispatch({ type: 'ADD_COLOR', value: hex })
+        onAddColor: (hex) => dispatch({ type: 'ADD_COLOR', value: hex }),
+        onAddId: (id) => dispatch({ type: 'ADD_ID', number: id})
     };
 };
 

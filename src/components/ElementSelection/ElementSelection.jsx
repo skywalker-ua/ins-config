@@ -16,7 +16,6 @@ const ElementSelection = () => {
                    <Svg />
                 </div>
             </div>
-            
         </div>
     );
 };
