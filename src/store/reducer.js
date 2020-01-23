@@ -1,5 +1,5 @@
 const initialState = {
-    color: 'green'
+    color: 'null'
 }
 
 const reducer = (state = initialState, action) => {

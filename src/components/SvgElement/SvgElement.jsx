@@ -9,6 +9,8 @@ const SvgElement = props => {
     height: 300px;
     margin-top: 20px;
     cursor: pointer;
+    position: relative;
+    bottom: 6em;
     .cls-22 {
         fill: ${props.color};
     }

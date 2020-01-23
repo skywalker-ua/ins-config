@@ -42,11 +42,6 @@ const ColorSample = styled(Paper)`
 
 const ColorPicker = (props) => {
 
-    const colorPick = props => event => {
-        event.preventDefault();
-        console.log(props.imageHex);
-    }
-
     return(
         <ColorTab>
             {data.map(color => (

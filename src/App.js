@@ -7,6 +7,8 @@ import ColorPicker from './components/ColorPicker/ColorPicker';
 import SvgElement from './components/SvgElement/SvgElement';
 import OrderList from './components/OrderList/OrderList';
 import TotalSum from './components/TotalSum/TotalSum';
+import ElementSelection from './components/ElementSelection/ElementSelection';
+
 import { connect } from 'react-redux';
 
 function App(props) {
@@ -42,8 +44,9 @@ function App(props) {
           height="400px" 
           title="Виберіть вихідні дані" 
           info='Add following info'
-          // loader={true}
+          // loader={props.clr}
         >
+          <ElementSelection />
           <SvgElement color={props.clr} />
         </Surface>
 
