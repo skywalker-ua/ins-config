@@ -2,22 +2,30 @@ import React from 'react';
 import './ElementSelection.css'
 // import SvgElement from '../../components/SvgElement/SvgElement';
 import { ReactComponent as Svg } from '../../assets/all.svg';
+import { ReactComponent as House } from '../../assets/house.svg';
+import { connect } from 'react-redux';
 
-const ElementSelection = () => {
+const ElementSelection = (props) => {
     return(
         <div className="wrapper">
             <div className="item-img">
-                <div className="element-child">
+                <div className="element-child" onClick={() => props.onChooseElement('facade')} >
                    <Svg />
                 </div>
             </div>
             <div className="item-img">
-                <div className="element-child">
-                   <Svg />
+                <div className="element-child-house" onClick={() => props.onChooseElement('house')} >
+                   <House />
                 </div>
             </div>
         </div>
     );
 };
 
-export default ElementSelection;
+const mapDispatchToProps = dispatch => {
+    return {
+        onChooseElement: (el) => dispatch({ type: 'CHOOSE_ELEMENT', item: el})
+    }
+}
+
+export default connect(null, mapDispatchToProps)(ElementSelection);

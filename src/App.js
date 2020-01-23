@@ -40,13 +40,13 @@ function App(props) {
           width="450px" 
           height="400px" 
           title="Вигляд системи утеплення" 
-          info='Add following info'
+          info='Усі зображення є наближеними'
           // loader={props.clr}
         >
           <ColorId colorId={props.idn} />
           <ElementSelection />
 
-          <SvgElement color={props.clr} />
+          <SvgElement selected={props.el} color={props.clr} />
         </Surface>
 
         <Surface 
@@ -68,7 +68,8 @@ function App(props) {
 const mapStateToProps = state => {
   return {
     clr: state.color,
-    idn: state.id
+    idn: state.id,
+    el: state.element
   }
 }
 

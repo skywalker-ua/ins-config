@@ -1,6 +1,7 @@
 const initialState = {
     color: 'null',
-    id: false
+    id: false,
+    element: 'facade'
 }
 
 const reducer = (state = initialState, action) => {
@@ -15,6 +16,13 @@ const reducer = (state = initialState, action) => {
         return {
             ...state,
             id: action.number
+        }
+    }
+
+    if (action.type === 'CHOOSE_ELEMENT') {
+        return {
+            ...state,
+            element: action.item
         }
     }
     return state;

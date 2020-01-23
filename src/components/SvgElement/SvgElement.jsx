@@ -2,6 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { ReactComponent as Element } from '../../assets/all.svg';
+import { ReactComponent as House } from '../../assets/house.svg';
+
+const SvgElementHouse = () => {
+    const EditHouse = styled(House)`
+      width: 100%;
+      height: 300px;
+      cursor: pointer;
+      position: relative;
+      bottom: 4em;
+    `;
+    return(
+       <EditHouse />
+    );
+}
 
 const SvgElement = props => {
     const EditElement = styled(Element)`
@@ -16,8 +30,8 @@ const SvgElement = props => {
     }
 `;
     return (
-        <div>   
-            <EditElement />
+        <div>
+            {props.selected === 'house' ? <SvgElementHouse /> : <EditElement />}   
         </div>
     );
 };

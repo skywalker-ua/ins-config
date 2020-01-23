@@ -1,7 +1,6 @@
 .content {
     display: flex;
     justify-content: center;
-    
     flex-flow: row wrap;
     width: 100%;
 }
