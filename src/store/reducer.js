@@ -3,6 +3,7 @@ const initialState = {
     id: false,
     element: 'facade',
     square: 0,
+    language: "ua"
 }
 
 const reducer = (state = initialState, action) => {
@@ -31,6 +32,13 @@ const reducer = (state = initialState, action) => {
         return {
             ...state,
             square: action.sqValue
+        }
+    }
+
+    if (action.type === 'CHANGE_LANGUAGE') {
+        return {
+            ...state,
+            language: action.language
         }
     }
     return state;

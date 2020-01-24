@@ -1,9 +1,8 @@
 import React from 'react';
 import { Table, TableBody, TableRow, TableCell,
-    TableHead } from '@material-ui/core';
-
+    TableHead  } from '@material-ui/core';
 const OrderTable = (props) => {
-    const { square } = props;
+    const { square, colorId } = props;
     return(
         <div>
             <Table style={{cursor: 'pointer', width: '550px', overflow: 'auto'}} size="small">
@@ -13,12 +12,13 @@ const OrderTable = (props) => {
                         <TableCell align="right"><b>Кількість</b></TableCell>
                         <TableCell align="center"><b>Ціна за 1 м²</b></TableCell>
                         <TableCell align="right"><b>Ціна (грн)</b></TableCell>
+                        
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     <TableRow hover>
                         <TableCell >Пінопласт</TableCell>
-                        <TableCell align="right">{(square / 1).toFixed(1)}</TableCell>
+                        <TableCell align="right">{(square / 2).toFixed(1)}</TableCell>
                         <TableCell align="center">12</TableCell>
                         <TableCell align="right">1233</TableCell>
                     </TableRow>
@@ -60,9 +60,9 @@ const OrderTable = (props) => {
                     </TableRow>
                     <TableRow hover>
                         <TableCell>Декоративна штукатурка</TableCell>
-                        <TableCell align="right">{(square / 6).toFixed(1)}</TableCell>
-                        <TableCell align="center">12</TableCell>
-                        <TableCell align="right">1233</TableCell>
+                        <TableCell align="right">{(square * 2.95).toFixed(1)}</TableCell>
+                        <TableCell align="center">39.6</TableCell>
+                        <TableCell align="right">{(square * 2.95 * 39.6).toFixed(1)}</TableCell>
                     </TableRow>
         
                     {/* Subtotal */}

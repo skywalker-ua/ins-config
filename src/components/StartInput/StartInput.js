@@ -101,7 +101,7 @@ const StartInput = (props) => {
                 <FormHelperText id="square-feet-text">Площа фасаду</FormHelperText>
                 <SwitchButton />
             </FormControl>
-            <Button  onClick={() => inputValues.error ? null : props.onInputSquare(inputValues.square)} color="secondary" variant="contained">РОЗРАХУВАТИ</Button>
+            <Button disabled={inputValues.error}  onClick={() => inputValues.error ? null : props.onInputSquare(inputValues.square)} color="secondary" variant="contained">РОЗРАХУВАТИ</Button>
         </FormDiv>
     );
 };

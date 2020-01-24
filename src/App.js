@@ -11,11 +11,16 @@ import ElementSelection from './components/ElementSelection/ElementSelection';
 import ColorId from './components/ColorId/ColorId';
 import OrderTable from './components/OrderTable/OrderTable';
 import OrderActions from './components/OrderActions/OrderActions';
-
 import { connect } from 'react-redux';
+import CallManager from './components/CallManager/CallManager';
 
-function App(props) {
+class App extends React.Component {
 
+  state = {
+    lang: "ua"
+  }
+
+  render() {
   return (
     <div className="App">
       <Layout>
@@ -48,27 +53,30 @@ function App(props) {
                 info='Усі зображення є наближеними'
                 // loader={props.clr}
               >
-                <ColorId colorId={props.idn} />
+                <ColorId colorId={this.props.idn} />
                 <ElementSelection />
-                <SvgElement selected={props.el} color={props.clr} />
+                <SvgElement selected={this.props.el} color={this.props.clr} />
             </Surface>
 
             <Surface 
               width="650px" 
-              height="475px" 
+              height="495px" 
               title="Необхідний список матеріалів" 
               info="На палітрі зображені доступні кольори декоративних
               штукатурок"
+              // loader
             >
               {/* <OrderList /> */}
-              <OrderTable square={props.sq} />
+              <OrderTable colorId={this.props.clr} square={this.props.sq} />
               <OrderActions />
               {/* <TotalSum sum="3000" /> */}
             </Surface>
           </div>
+          {/* <CallManager /> */}
       </Layout>
     </div>
   );
+  }
 }
 
 const mapStateToProps = state => {
@@ -76,7 +84,8 @@ const mapStateToProps = state => {
     clr: state.color,
     idn: state.id,
     el: state.element,
-    sq: state.square
+    sq: state.square,
+    lg: state.language
   }
 }
 
