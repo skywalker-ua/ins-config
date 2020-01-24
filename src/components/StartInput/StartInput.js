@@ -1,8 +1,10 @@
 import React from 'react';
 import { FormHelperText, FilledInput, FormControl,
     Input, InputAdornment, Switch, FormGroup,
-    FormControlLabel, Slider, Typography  } from '@material-ui/core';
+    FormControlLabel, Slider, Typography,
+    Button   } from '@material-ui/core';
 import styled from 'styled-components';
+import { connect } from 'react-redux'
 
 const FormDiv = styled.div`
     display: flex;
@@ -24,17 +26,34 @@ const SliderDiv = styled.div`
     flex-flow: column nowrap;
 `;
 
-const StartInput = () => {
+const StartInput = (props) => {
 
     const [inputValues, setInputValue] = React.useState({
         square: '',
         pinostyrol: false,
         wool: false,
+        error: null,
+        errorMessage: null
     });
 
     const handleInput = prop => event => {
-        setInputValue({ ...inputValues, [prop]: event.target.value });
+        
+        event.preventDefault();
+        if (event.target.value > 1999 || event.target.value <= 0) {
+            setInputValue({
+                error: true,
+                errorMessage: 'Перевищене значення'
+            });
+        } else 
+        setInputValue({
+            ...inputValues, 
+            error: false,
+            [prop]: event.target.value,
+        });
+        
     };
+
+    
 
     const handleCheck = name => event => {
         setInputValue({ ...inputValues, [name]: event.target.checked  });
@@ -67,22 +86,30 @@ const StartInput = () => {
         );
     };
 
+
     return(
         <FormDiv>
-            <FormControl variant="filled">
+            <FormControl variant="filled"  >
                 <FilledInput
-                    color="secondary"
+                    error={inputValues.error}
                     onChange={handleInput('square')}
+                    color="secondary"
                     value={inputValues.square}
                     type="number"
                     id="square-feet-value "
                     endAdornment={<InputAdornment position="end">м²</InputAdornment >} />
                 <FormHelperText id="square-feet-text">Площа фасаду</FormHelperText>
+                <SwitchButton />
             </FormControl>
-            <SwitchButton />
-            <p>{inputValues.square}</p>
+            <Button  onClick={() => inputValues.error ? null : props.onInputSquare(inputValues.square)} color="secondary" variant="contained">РОЗРАХУВАТИ</Button>
         </FormDiv>
     );
 };
 
-export default StartInput;
+const mapDispatchToProps = dispatch => {
+    return {
+        onInputSquare: (square) => dispatch({ type: 'ADD_SQUARE', sqValue: square})
+    }
+}
+
+export default connect(null, mapDispatchToProps)(StartInput);

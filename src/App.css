@@ -1,0 +1,11 @@
+.selection-bars {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+.display-bars {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}

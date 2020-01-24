@@ -1,7 +1,8 @@
 const initialState = {
     color: 'null',
     id: false,
-    element: 'facade'
+    element: 'facade',
+    square: 0,
 }
 
 const reducer = (state = initialState, action) => {
@@ -23,6 +24,13 @@ const reducer = (state = initialState, action) => {
         return {
             ...state,
             element: action.item
+        }
+    }
+
+    if (action.type === 'ADD_SQUARE') {
+        return {
+            ...state,
+            square: action.sqValue
         }
     }
     return state;

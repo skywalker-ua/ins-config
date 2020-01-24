@@ -3,7 +3,7 @@ import { List, ListItem, ListItemText } from '@material-ui/core';
 import styled from 'styled-components';
 
 const ListMaterials = styled.div`
-    width: 400px;
+    width: 600px;
     display: flex;
     margin-top: 4px;
     overflow: auto;
@@ -29,7 +29,7 @@ const ListMaterials = styled.div`
 const OrderList = () => { 
     return(
         <ListMaterials>
-            <List style={{width: '500px'}}>
+            <List style={{width: '600px'}}>
                 <ListItem button divider>
                     <ListItemText primary="ECOGRAN" secondary="Баранник 2,5 мм" />
                     <ListItemText primary="23 кг" />
