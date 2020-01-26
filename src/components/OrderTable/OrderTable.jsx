@@ -1,18 +1,18 @@
 import React from 'react';
 import { Table, TableBody, TableRow, TableCell,
-    TableHead  } from '@material-ui/core';
+    TableHead, useMediaQuery  } from '@material-ui/core';
 const OrderTable = (props) => {
     const { square, colorId } = props;
+    const matches = useMediaQuery('(min-width: 600px)');
     return(
         <div>
-            <Table style={{cursor: 'pointer', width: '550px', overflow: 'auto'}} size="small">
+            <Table style={{cursor: 'pointer', width: `550px`, overflow: 'auto'}} size="small">
                 <TableHead>
                     <TableRow>
                         <TableCell><b>Матеріал</b></TableCell>
                         <TableCell align="right"><b>Кількість</b></TableCell>
                         <TableCell align="center"><b>Ціна за 1 м²</b></TableCell>
                         <TableCell align="right"><b>Ціна (грн)</b></TableCell>
-                        
                     </TableRow>
                 </TableHead>
                 <TableBody>
