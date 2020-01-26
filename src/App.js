@@ -16,10 +16,6 @@ import CallManager from './components/CallManager/CallManager';
 
 class App extends React.Component {
 
-  state = {
-    lang: "ua"
-  }
-
   render() {
   return (
     <div className="App">
@@ -59,8 +55,8 @@ class App extends React.Component {
             </Surface>
 
             <Surface 
-              width="650px" 
-              height="495px" 
+              width="550px" 
+              height="460px" 
               title="Необхідний список матеріалів" 
               info="На палітрі зображені доступні кольори декоративних
               штукатурок"

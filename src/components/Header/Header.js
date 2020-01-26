@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css';
 import { AppBar, Toolbar, Divider, Typography,
-Button, IconButton    } from '@material-ui/core';
+Button, IconButton, useMediaQuery     } from '@material-ui/core';
 import Logo from '../Logo/Logo';
 import styled from 'styled-components';
 import TranslateIcon from '@material-ui/icons/Translate';
@@ -31,18 +31,24 @@ const IconsSet = styled.div`
 
 
 const Header = (props) => {
+
+    const matches = useMediaQuery('(min-width: 600px)');
+
     return(
         <div>
-            <AppBar pos elevation={1}>
+            <AppBar  elevation={1} >
                 <ToolbarS>
                     <Logo />
                     <TitleDivider orientation="vertical" />
-                    <PageTitle variant="h5">Калькулятор утеплення</PageTitle>
+                    <PageTitle variant="h5" >Калькулятор утеплення</PageTitle>
+                    { matches ? 
                         <IconsSet>
                             <Button disabled color="secondary" variant="outlined" startIcon={<TranslateIcon />}>
-                                Ukrainian
+                               Ukrainian
                             </Button >
                         </IconsSet>
+                        : null
+                    }   
 
                 </ToolbarS>
             </AppBar>
