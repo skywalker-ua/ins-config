@@ -56,10 +56,9 @@ class App extends React.Component {
 
             <Surface 
               width="550px" 
-              height="460px" 
+              height="475px" 
               title="Необхідний список матеріалів" 
-              info="На палітрі зображені доступні кольори декоративних
-              штукатурок"
+              info="Розрахована вартість необхідних матеріалів"
               // loader
             >
               {/* <OrderList /> */}
