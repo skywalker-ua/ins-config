@@ -1,28 +1,24 @@
 import React from 'react';
 import { Table, TableBody, TableRow, TableCell,
     TableHead, useMediaQuery, Popover,
-    Checkbox   } from '@material-ui/core';
+    Checkbox, Typography, Divider   } from '@material-ui/core';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import styled from 'styled-components';
 
-const PENOPLAST = [
-    {
-        name: 'Penoplast',
-        price: '223'
-    }
-]
+const MaterialListItems = styled.div`
+    display: flex;
+    flex-flow: row nowrap;
+    position: relative;
+    left: 6em;
+`;
 
-const MaterialList = props => {
-    if (props.show) {
-        return (
-            <div>
-                {props.values.map(item => (
-                    <div>{item.name}</div> 
-                ))}
-            </div> 
-        );
-    } else return null;
-};
+const MaterialListItem = styled.div`
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+`;
+
 
 const OrderTable = (props) => {
     const { square, colorId } = props;
@@ -62,9 +58,7 @@ const OrderTable = (props) => {
                         <TableCell align="center">12</TableCell>
                         <TableCell align="right">1233</TableCell>
                     </TableRow>
-                    <MaterialList values={PENOPLAST} show={values.checkedA}></MaterialList>
-                    
-
+                   
                     <TableRow hover>
                     <TableCell ><Checkbox
                             icon={<ArrowForwardIcon />}
