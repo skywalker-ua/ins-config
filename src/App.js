@@ -56,7 +56,7 @@ class App extends React.Component {
 
             <Surface 
               width="550px" 
-              style={{minHeight: '550'}}
+              
               title="Необхідний список матеріалів" 
               info="Розрахована вартість необхідних матеріалів"
               // loader
