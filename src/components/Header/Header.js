@@ -1,10 +1,11 @@
 import React from 'react';
 import './Header.css';
 import { AppBar, Toolbar, Divider, Typography,
-Button, IconButton, useMediaQuery     } from '@material-ui/core';
+Button, IconButton, useMediaQuery    } from '@material-ui/core';
 import Logo from '../Logo/Logo';
 import styled from 'styled-components';
 import TranslateIcon from '@material-ui/icons/Translate';
+import CallIcon from '@material-ui/icons/Call';
 
 const ToolbarS = styled(Toolbar)`
     display: flex;
@@ -34,6 +35,7 @@ const Header = (props) => {
 
     const matches = useMediaQuery('(min-width: 600px)');
 
+
     return(
         <div>
             <AppBar  elevation={1} >
@@ -43,7 +45,7 @@ const Header = (props) => {
                     <PageTitle variant="h5" >Калькулятор утеплення</PageTitle>
                     { matches ? 
                         <IconsSet>
-                            <Button disabled color="secondary" variant="outlined" startIcon={<TranslateIcon />}>
+                            <Button style={{display: 'none'}} disabled color="secondary" variant="outlined" startIcon={<TranslateIcon />}>
                                Ukrainian
                             </Button >
                         </IconsSet>
