@@ -2,7 +2,9 @@ import React from 'react';
 import './ElementSelection.css'
 // import SvgElement from '../../components/SvgElement/SvgElement';
 import { ReactComponent as Svg } from '../../assets/all.svg';
-import { ReactComponent as House } from '../../assets/house.svg';
+// import { ReactComponent as House } from '../../assets/house.svg';
+import { ReactComponent as HouseTraditional } from '../../assets/house1.svg';
+
 import { connect } from 'react-redux';
 
 const ElementSelection = (props) => {
@@ -14,8 +16,8 @@ const ElementSelection = (props) => {
                 </div>
             </div>
             <div className="item-img">
-                <div className="element-child-house" onClick={() => props.onChooseElement('house')} >
-                   <House />
+                <div className="element-child-house-traditional" onClick={() => props.onChooseElement('house-trad')}  >
+                   <HouseTraditional />
                 </div>
             </div>
         </div>

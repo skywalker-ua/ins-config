@@ -1,12 +1,17 @@
 .selection-bars {
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
+    flex-flow: column wrap;
+    justify-content: flex-start;
 }
 
 .display-bars {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    position: relative;
+}
+
+.App {
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
 }
