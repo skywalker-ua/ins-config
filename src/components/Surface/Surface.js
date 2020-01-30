@@ -47,7 +47,7 @@ const { width, height, title, info, children, loader } = props;
 
     return(
         <div>
-            <SurfaceTools style={{minWidth: `${width}`, height: `${height}`}}>
+            <SurfaceTools style={{width: `${width}`, height: `${height}`}}>
                 <SurfaceTitle title={loader ? 'Введіть усі дані' : title} info={info} />
                 { loader ?
                 <Loader /> :

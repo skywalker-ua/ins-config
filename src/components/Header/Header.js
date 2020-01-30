@@ -30,20 +30,22 @@ const IconsSet = styled.div`
     font-family: 'Roboto', sans-serif;
 `;
 
-
 const Header = (props) => {
 
     const matches = useMediaQuery('(min-width: 600px)');
 
-
     return(
         <div>
-            <AppBar  elevation={1} >
+            <AppBar  elevation={1}  >
                 <ToolbarS>
                     <Logo />
                     <TitleDivider orientation="vertical" />
-                    <PageTitle variant="h5" >Калькулятор утеплення</PageTitle>
-                    { matches ? 
+                    {matches ? <PageTitle variant={`h5`} >
+                        Калькулятор утеплення
+                        </PageTitle> : <PageTitle variant={`h6`} >
+                        Калькулятор утеплення
+                        </PageTitle> }
+                    { matches ?  
                         <IconsSet>
                             <Button style={{display: 'none'}} disabled color="secondary" variant="outlined" startIcon={<TranslateIcon />}>
                                Ukrainian
