@@ -13,6 +13,7 @@ import OrderTable from './components/OrderTable/OrderTable';
 import OrderActions from './components/OrderActions/OrderActions';
 import { connect } from 'react-redux';
 import CallManager from './components/CallManager/CallManager';
+import OrderResults from './components/OrderResults/OrderResults';
 
 class App extends React.Component {
 
@@ -41,33 +42,26 @@ class App extends React.Component {
           </Surface>
         </div>
 
-        <div className="display-bars">
-            <Surface 
-                width="450px" 
-                height="400px" 
-                title="Вигляд системи утеплення" 
-                info='Усі зображення є наближеними'
-                // loader={props.clr}
-              >
-                <ColorId colorId={this.props.idn} />
-                <ElementSelection />
-                <SvgElement selected={this.props.el} color={this.props.clr} />
-            </Surface>
+        
+          <Surface 
+            width="300px" 
+            height="400px" 
+            title="Вигляд системи утеплення" 
+            info='Усі зображення є наближеними'
+            // loader={props.clr}
+          >
+            <ColorId colorId={this.props.idn} />
+            <ElementSelection />
+            <SvgElement selected={this.props.el} color={this.props.clr} />
+          </Surface>
 
-            <Surface 
-              width="550px" 
-              style={{minHeight: '550'}}
-              title="Необхідний список матеріалів" 
-              info="Розрахована вартість необхідних матеріалів"
-              // loader
-            >
-              {/* <OrderList /> */}
-              <OrderTable colorId={this.props.clr} square={this.props.sq} />
-              <OrderActions />
-              {/* <TotalSum sum="3000" /> */}
-            </Surface>
-          </div>
-          {/* <CallManager /> */}
+          <Surface
+            width="350px"
+            height="400px"
+            title="Результати розрахунку">
+              <OrderResults square={this.props.sq} />
+              <OrderActions square={this.props.sq} />
+          </Surface>
       </Layout>
     </div>
   );
