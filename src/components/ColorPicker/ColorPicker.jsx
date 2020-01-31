@@ -1,16 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import {  Paper, Typography   } from '@material-ui/core';
+import {  Paper, Typography, Tab, Tabs, useMediaQuery    } from '@material-ui/core';
 import data from '../../constants/colors';
-import { connect } from 'react-redux';
+import resimarm from '../../constants/resimarm';
 
+import { connect } from 'react-redux';
 
 const ColorTab = styled.div`
     display: flex;
     justify-content: center;
-    margin-top: 5px;
+    margin-top: 4px;
     width: 250px;
-    height: 300px;
+    height: 270px;
     padding: 10px;
     flex-flow: row wrap;
     overflow: auto;
@@ -38,19 +39,61 @@ const ColorSample = styled(Paper)`
     cursor: pointer;
 `;
 
-
+const ColorSelectionTab = styled(Tab)`
+   
+`;
 
 const ColorPicker = (props) => {
+    const matches = useMediaQuery('(max-width:600px)');
+    const SelectionTab = styled(Tabs)`
+    
+    width: 300px;
+    position: relative;
+    left: ${() => matches ? '30px' : '0px'}
+    `;
+    const [values, setValue] = React.useState({
+        selection: 0,
+    });
+
+    const handleSelect = (event, newValue) => {
+        
+        setValue({
+            ...values,
+            selection: newValue
+        })
+        console.log(newValue);
+    }   
 
     return(
-        <ColorTab>
-            {data.map(color => (
-                <ColorSample onClick={() => {
-                    props.onAddColor(color.imageHex);
-                    props.onAddId(color.id); 
-                }} style={{backgroundColor: `${color.imageHex}`}}  hex={color.imageHex} key={color.id} title={color.id}/>
-            ))}  
-        </ColorTab>
+        <div>
+            <SelectionTab value={values.selection} onChange={handleSelect} aria-label="selection tabs">
+                <ColorSelectionTab id="tab-0" label="Resimarm"></ColorSelectionTab>
+                <ColorSelectionTab id="tab-1" label="Штукатурки"></ColorSelectionTab>
+            </SelectionTab>
+            { values.selection == 0 ? 
+                
+                <ColorTab>
+                    {resimarm.map(color => (
+                        <ColorSample
+                         onClick={() => {
+                            // props.onAddColor(color.imageHex);
+                            props.onAddId(color.id); }}
+                         key={color.id} title={color.id}><img style={{width: '40px', height: '40px', pointerEvents: 'none'}} src={color.imagePath} />
+                        </ColorSample>
+                        
+                    ))}  
+                </ColorTab>
+            :
+                <ColorTab>
+                    {data.map(color => (
+                        <ColorSample onClick={() => {
+                            props.onAddColor(color.imageHex);
+                            props.onAddId(color.id); 
+                        }} style={{backgroundColor: `${color.imageHex}`}}  hex={color.imageHex} key={color.id} title={color.id}/>
+                    ))}  
+                </ColorTab>
+        }
+        </div>
     );
         
 

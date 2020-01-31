@@ -26,7 +26,7 @@ const OrderResults = props => {
     
     return(
         <div>
-            <Table size="small" style={{width: '350px', height: '300px'}}>
+            <Table size="small" style={{width: '350px', height: '300px', cursor: 'pointer'}}>
                 <TableBody>
                     {rowNames.map(row => (
                         <TableRow hover>
